@@ -1,0 +1,8 @@
+node_modules/
+plugins/
+themes/index.php
+themes/twenty*/
+upgrade/
+uploads/
+debug.log
+/index.php
