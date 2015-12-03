@@ -19,6 +19,14 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+        $(function(){
+          $('.dropdown').hover(function() {
+              $(this).addClass('open');
+            },
+            function() {
+              $(this).removeClass('open');
+          });
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

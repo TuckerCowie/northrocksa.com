@@ -11,7 +11,7 @@ function setup() {
   // Enable features from Soil when plugin is activated
   // https://roots.io/plugins/soil/
   add_theme_support('soil-clean-up');
-  add_theme_support('soil-nav-walker');
+  // add_theme_support('soil-nav-walker');
   add_theme_support('soil-nice-search');
   add_theme_support('soil-jquery-cdn');
   add_theme_support('soil-relative-urls');
@@ -66,15 +66,6 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Pages Sidebar', 'sage'),
-    'id'            => 'sidebar-page',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
-
-  register_sidebar([
     'name'          => __('Sermon Sidebar', 'sage'),
     'id'            => 'sidebar-sermon',
     'before_widget' => '<section class="widget %1$s %2$s">',
@@ -106,10 +97,7 @@ function display_sidebar() {
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
     is_front_page(),
-    is_page('about'),
-    is_page('new-here'),
-    is_page('next-steps'),
-    is_page_template('template-custom.php'),
+    is_page(),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
