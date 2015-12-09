@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="17px" viewBox="0 0 12 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-forward-red</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-724.000000, -498.000000)" id="Promo" fill="#B23615">
+            <g sketch:type="MSLayerGroup" transform="translate(0.000000, 50.000000)">
+                <g id="New-Here?" transform="translate(516.000000, 250.000000)" sketch:type="MSShapeGroup">
+                    <path d="M219.685333,206.346667 L208,214.693333 C208,214.693333 210.504,209.326687 210.504,206.643365 C210.504,203.762243 208,198 208,198 L219.685333,206.346667 Z" id="arrow-forward-red"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

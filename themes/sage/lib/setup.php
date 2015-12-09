@@ -27,9 +27,7 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
-    'top_navigation' => __('Top Navigation', 'sage'),
-    'mobile_navigation' => __('Mobile Navigation', 'sage'),
-    'footer_navigation' => __('Footer Navigation', 'sage')
+    'top_navigation' => __('Top Navigation', 'sage')
   ]);
 
   // Enable post thumbnails
@@ -37,6 +35,8 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+
+  add_image_size('video', 620, 349, ['center', 'center']);
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
@@ -66,8 +66,8 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Sermon Sidebar', 'sage'),
-    'id'            => 'sidebar-sermon',
+    'name'          => __('Sermon Series Sidebar', 'sage'),
+    'id'            => 'sidebar-series',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
@@ -75,13 +75,41 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Footer Widget', 'sage'),
-    'id'            => 'sidebar-footer',
+    'name'          => __('Footer Left Widget', 'sage'),
+    'id'            => 'sidebar-footer-1',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>'
   ]);
+
+  register_sidebar([
+    'name'          => __('Footer Left-Center Widget', 'sage'),
+    'id'            => 'sidebar-footer-2',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Footer Right-Center Widget', 'sage'),
+    'id'            => 'sidebar-footer-3',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Footer Right Widget', 'sage'),
+    'id'            => 'sidebar-footer-4',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
 
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
@@ -98,6 +126,7 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page(),
+    is_post_type_archive('series')
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

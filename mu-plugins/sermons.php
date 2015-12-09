@@ -1,33 +1,33 @@
 <?php
 /*
- * Plugin Name: Northrock Sermons
+ * Plugin Name: Northrock Sermon Series
  * Description: Custom Post Type that syncs with the Northrock Vimeo channel
  * Author: Tucker Cowie
  * Text Domain: northrock-sermons
  */
 
 function sermons_init() {
-	register_post_type( 'sermons', array(
+	register_post_type( 'series', array(
 		'labels'            => array(
-			'name'                => __( 'Sermons', 'northrock-sermons' ),
-			'singular_name'       => __( 'Sermon', 'northrock-sermons' ),
-			'all_items'           => __( 'All Sermons', 'northrock-sermons' ),
-			'new_item'            => __( 'New Sermon', 'northrock-sermons' ),
+			'name'                => __( 'Sermon Series', 'northrock-sermons' ),
+			'singular_name'       => __( 'Series', 'northrock-sermons' ),
+			'all_items'           => __( 'All Sermon Series', 'northrock-sermons' ),
+			'new_item'            => __( 'New Sermon Series', 'northrock-sermons' ),
 			'add_new'             => __( 'Add New', 'northrock-sermons' ),
-			'add_new_item'        => __( 'Add New Sermon', 'northrock-sermons' ),
-			'edit_item'           => __( 'Edit Sermon', 'northrock-sermons' ),
-			'view_item'           => __( 'View Sermon', 'northrock-sermons' ),
-			'search_items'        => __( 'Search Sermons', 'northrock-sermons' ),
-			'not_found'           => __( 'No Sermons found', 'northrock-sermons' ),
-			'not_found_in_trash'  => __( 'No Sermons found in trash', 'northrock-sermons' ),
-			'parent_item_colon'   => __( 'Parent Sermon', 'northrock-sermons' ),
-			'menu_name'           => __( 'Sermons', 'northrock-sermons' ),
+			'add_new_item'        => __( 'Add New Sermon Series', 'northrock-sermons' ),
+			'edit_item'           => __( 'Edit Sermon Series', 'northrock-sermons' ),
+			'view_item'           => __( 'View Sermon Series', 'northrock-sermons' ),
+			'search_items'        => __( 'Search Sermons Series', 'northrock-sermons' ),
+			'not_found'           => __( 'No Sermon Series found', 'northrock-sermons' ),
+			'not_found_in_trash'  => __( 'No Sermon Series found in trash', 'northrock-sermons' ),
+			'parent_item_colon'   => __( 'Parent Sermon Sermon Series', 'northrock-sermons' ),
+			'menu_name'           => __( 'Sermon Series', 'northrock-sermons' ),
 		),
 		'public'            => true,
 		'hierarchical'      => false,
 		'show_ui'           => true,
 		'show_in_nav_menus' => true,
-		'supports'          => array( 'title', 'editor' ),
+		'supports'          => array( 'title', 'editor', 'thumbnail', 'revisions'),
 		'has_archive'       => true,
 		'rewrite'           => true,
 		'query_var'         => true,
@@ -42,7 +42,7 @@ function sermon_updated_messages( $messages ) {
 
 	$permalink = get_permalink( $post );
 
-	$messages['sermons'] = array(
+	$messages['series'] = array(
 		0 => '', // Unused. Messages start at index 1.
 		1 => sprintf( __('Sermon updated. <a target="_blank" href="%s">View Sermon</a>', 'northrock-sermons'), esc_url( $permalink ) ),
 		2 => __('Custom field updated.', 'northrock-sermons'),

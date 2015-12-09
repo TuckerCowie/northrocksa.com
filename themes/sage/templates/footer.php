@@ -1,24 +1,42 @@
 <footer class="container-fluid">
   <div class="container">
   	<div class="row">
-  		<div class="col-md-6">
-  			White Logo
+  		<div class="col-md-9">
+  			<a href="/">
+          <img src="<?= get_template_directory_uri() . '/assets/images/logo-horizontal-white.png'; ?>" height="100%">
+        </a>
   			<!-- White Logo -->
   		</div>
-  		<div class="col-md-6 text-right">
-  			Social Icons
+  		<div class="col-md-3">
+        <div class="col-xs-2 col-md-offset-2">
+          <a href=""><img src="<?= get_template_directory_uri() . '/assets/images/social-google-plus.svg'; ?>"></a>
+        </div>
+        <div class="col-xs-2">
+          <a href=""><img src="<?= get_template_directory_uri() . '/assets/images/social-facebook.svg'; ?>"></a>
+        </div>
+        <div class="col-xs-2">
+          <a href=""><img src="<?= get_template_directory_uri() . '/assets/images/social-twitter.svg'; ?>"></a>
+        </div>
+        <div class="col-xs-2">
+          <a href=""><img src="<?= get_template_directory_uri() . '/assets/images/social-instagram.svg'; ?>"></a>
+        </div>
+  			<div class="col-xs-2">
+       <a href=""><img src="<?= get_template_directory_uri() . '/assets/images/social-youtube.svg'; ?>"></a>   
+        </div>
   		</div>
   	</div>
   	<div class="row">
-  		<div class="col-md-9">
-			<?php if (has_nav_menu('footer_navigation')) : ?>
-				<nav class="nr_footer-nav">
-					<?php wp_nav_menu(['theme_location' => 'footer_navigation', 'menu_class' => 'nav nav-pills']); ?>
-				</nav>
-			<?php endif; ?>
-  		</div>
+      <div class="col-md-3">
+        <?php dynamic_sidebar('sidebar-footer-1'); ?>
+      </div>
+      <div class="col-md-3">
+        <?php dynamic_sidebar('sidebar-footer-2'); ?>
+      </div>
+      <div class="col-md-3">
+        <?php dynamic_sidebar('sidebar-footer-3'); ?>
+      </div>
   		<div class="col-md-3">
-		    <?php dynamic_sidebar('sidebar-footer'); ?>
+		    <?php dynamic_sidebar('sidebar-footer-4'); ?>
   		</div>
   	</div>
   </div>

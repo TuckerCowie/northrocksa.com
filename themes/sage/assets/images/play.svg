@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16044) - http://www.bohemiancoding.com/sketch -->
+    <title>play</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="25" cy="25" r="25"></circle>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-485.000000, -201.000000)" id="Promo">
+            <g sketch:type="MSLayerGroup" transform="translate(0.000000, 50.000000)">
+                <g id="play" transform="translate(487.000000, 153.000000)">
+                    <g id="Hamburger-Copy" stroke-width="2">
+                        <use stroke="#FFFFFF" fill="#B23615" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                        <use stroke="#B23615" fill="none" xlink:href="#path-1"></use>
+                    </g>
+                    <path d="M33,25 L19,35 C19,35 22,28.5703125 22,25.3554688 C22,21.9036458 19,15 19,15 L33,25 Z" id="Path" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

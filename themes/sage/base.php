@@ -8,7 +8,7 @@ use Roots\Sage\Wrapper;
 <!doctype html>
 <html <?php language_attributes(); ?>>
   <?php get_template_part('templates/head'); ?>
-  <body <?php body_class(); ?> style="padding-top:70px;">
+  <body <?php body_class(); ?> style="padding-top:50px;">
     <!--[if IE]>
       <div class="alert alert-warning">
         <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>
@@ -18,18 +18,26 @@ use Roots\Sage\Wrapper;
       do_action('get_header');
       get_template_part('templates/header');
     ?>
-    <div class="wrap container" role="document">
-      <div class="content row">
-        <main class="main">
-          <?php include Wrapper\template_path(); ?>
-        </main><!-- /.main -->
-        <?php if (Setup\display_sidebar()) : ?>
-          <aside class="sidebar">
+    <?php if (!Setup\display_sidebar()) : ?>
+      <div role="document">
+        <div class="content">
+          <main class="main">
+            <?php include Wrapper\template_path(); ?>
+          </main><!-- /.main -->
+        </div><!-- /.content -->
+      </div><!-- /.wrap -->
+    <?php else: ?>
+      <div role="document" class="container">
+        <div class="content row">
+          <main class="main">
+            <?php include Wrapper\template_path(); ?>
+          </main>
+          <aside class="sidebar" style="padding-top: 2rem;">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
-        <?php endif; ?>
-      </div><!-- /.content -->
-    </div><!-- /.wrap -->
+        </div><!-- /.content -->
+      </div><!-- /.wrap -->
+    <?php endif; ?>
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');

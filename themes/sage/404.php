@@ -1,7 +1,10 @@
-<?php get_template_part('templates/page', 'header'); ?>
+<?php use Roots\Sage\Titles; ?>
 
-<div class="alert alert-warning">
-  <?php _e('Sorry, but the page you were trying to view does not exist.', 'sage'); ?>
+<div class="container text-center">
+	<h1><?= Titles\title(); ?></h1>
+	<div class="alert alert-danger">
+	  <?php _e('Sorry, but the page you were trying to view does not exist.', 'sage'); ?>
+	</div>
 </div>
 
-<?php get_search_form(); ?>
+
