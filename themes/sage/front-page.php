@@ -6,33 +6,59 @@
 		<?php $video = Vimeo\getVideo(get_sub_field('intro_video_id')) ?>
 		<div class="jumbotron" style="background-image: url(<?= the_sub_field('background_image'); ?>);">
 			<h1><?= the_sub_field('title'); ?></h1>
-			<a class="btn btn-play" href="<?= isset($video) ? $video->url : '#'; ?>">Play Video</a>
+			<?php if(isset($video)): ?>
+				<a class="btn btn-play" href="<?= $video->url; ?>">
+					<img src="<?= get_template_directory_uri() . '/assets/images/play.svg' ?>">
+				</a>
+			<?php endif; ?>
 		</div>
 		<?php endwhile; ?>
 	<?php endif; ?>
 
-	<div class="container">
+	<div class="container nr_mosiac">
 		<?php if (have_rows('main_conversion') && have_rows('conversion_mosiac')): ?>
-		<div class="row nr_flex-row">
-			<?php while(have_rows('main_conversion')): the_row(); ?>
-			<div class="col-md-6">
-				<a class="nr_card" href="#">
-					<img class="nr_card_image" src="http://placehold.it/600">
-					<div class="nr_card_content">
-						<span class="text-primary">Click Me</span>
-						<i class="glyphicon glyphicon-chevron-right pull-right"></i>
+		<div class="nr_mosiac_row">
+			<?php 
+			$sermon_series = new WP_Query(['post_type'=>'series', 'posts_per_page'=>1]);
+			if(get_field('current_series') && $sermon_series->have_posts()): 
+				while($sermon_series->have_posts()): $sermon_series->the_post(); ?>
+					<div class="nr_mosiac_col">
+						<a class="nr_card" href="<?= get_permalink(); ?>">
+							<div class="nr_card_image nr_card_image--mosiac">
+								<div class="content" style="background-image: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0]; ?>);"></div>
+							</div>
+							<div class="nr_card_link">
+								<span class="text-primary">Current Series: <?= the_title(); ?></span>
+								<i class="glyphicon glyphicon-chevron-right pull-right"></i>
+							</div>
+						</a>
 					</div>
-				</a>
-			</div>
-			<?php endwhile; ?>
-			<div class="col-md-6">
-				<div class="row nr_flex-row">
+				<?php endwhile; wp_reset_query(); ?>
+			<?php else: ?>
+				<?php while(have_rows('main_conversion')): the_row(); ?>
+				<div class="nr_mosiac_col">
+					<a class="nr_card" href="<?= the_sub_field('link'); ?>">
+						<div class="nr_card_image nr_card_image--mosiac">
+							<div class="content" style="background-image: url(<?= the_sub_field('image'); ?>);"></div>
+						</div>
+						<div class="nr_card_link">
+							<span class="text-primary"><?= the_sub_field('title'); ?></span>
+							<i class="glyphicon glyphicon-chevron-right pull-right"></i>
+						</div>
+					</a>
+				</div>
+				<?php endwhile; ?>
+			<?php endif; ?>
+			<div class="nr_mosiac_col">
+				<div class="nr_mosiac_row">
 					<?php while(have_rows('conversion_mosiac')): the_row(); ?>
-					<div class="col-md-6">
-						<a class="nr_card" href="#">
-							<img class="nr_card_image" src="http://placehold.it/300">
-							<div class="nr_card_content">
-								<span class="text-primary">Click Me</span>
+					<div class="nr_mosiac_col">
+						<a class="nr_card" href="<?= the_sub_field('link'); ?>">
+							<div class="nr_card_image nr_card_image--mosiac-sm">
+								<div class="content" style="background-image: url(<?= the_sub_field('image'); ?>);"></div>
+							</div>
+							<div class="nr_card_link" >
+								<span class="text-primary"><?= the_sub_field('title'); ?></span>
 								<i class="glyphicon glyphicon-chevron-right pull-right"></i>
 							</div>
 						</a>
@@ -44,10 +70,12 @@
 		<?php endif; ?>	
 	</div>
 
-	<div class="nr_parallax-bg text-center">
-		<img src="<?= get_template_directory_uri() . '/assets/images/logo-mark.png' ?>">
-		<h1><?= the_title(); ?></h1>
-		<?= the_content(); ?>
+	<div class="nr_parallax-bg text-center" style="background-image: url(<?= the_field('parallax_background'); ?>);>">
+		<div class="container">
+			<img width="50px" src="<?= get_template_directory_uri() . '/assets/images/logo-mark.png' ?>">
+			<h1><?= the_title(); ?></h1>
+			<?= the_content(); ?>
+		</div>
 	</div>
 
 	<div class="container">
@@ -55,16 +83,16 @@
 			<?php $cards = get_field('cards');
 				if ($cards) {
 					$card_count = count($cards);
-					$card_classes = 'col-md-' . 12 / $card_count;
+					$card_classes = 'col-sm-' . 12 / $card_count;
 					foreach ($cards as $card) { ?>
-						<div class="<?= $card_classes ?>">
-							<div class="nr_card text-center">
+						<div class="<?= $card_classes ?>" href="<?= $card['button_link']; ?>">
+							<a class="nr_card text-center">
 								<img class="nr_card_image" src="<?= $card['image']; ?>">
 								<div class="nr_card_content">
 									<p><?= $card['content']; ?></p>
-									<a class="btn btn-default btn-block" href="<?= $card['button_link']; ?>"><?= $card['button_label']; ?></a>
+									<span class="btn btn-default btn-block"><?= $card['button_label']; ?></span>
 								</div>
-							</div>
+							</a>
 						</div>
 					<?php }
 				} ?>

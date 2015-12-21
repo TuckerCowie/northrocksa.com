@@ -3,22 +3,23 @@
 		<h1>Sermon Series</h1>
 		<?php if (!have_posts()) : ?>
 			<div class="alert alert-danger">
-				<?php _e('Sorry, no results were found.', 'sage'); ?>
+				<?php _e('Sorry, there are no series at this time.', 'sage'); ?>
 			</div>
 			<?php get_search_form(); ?>
 		<?php endif; ?>
 		<div class="row">
 			<?php while (have_posts()) : the_post(); ?>
 				<div class="col-md-4">
-					<a href="<?php the_permalink(); ?>" class="nr_series-thumbnail">
-						<img src="/<?= wp_get_attachment_url( get_post_thumbnail_id( the_id() ) ) ?>">
-						<div class="nr_series-thumbnail_screen">
-							<span class="btn btn-default">View Series</a>
-						</div>
-					</a>
+					<div class="nr_series_thumbnail">
+						<a href="<?php the_permalink(); ?>" class="content" style="background-image:url(<?= wp_get_attachment_url( get_post_thumbnail_id() ) ?>);">
+							<div class="nr_series_thumbnail_screen">
+								<span class="btn btn-default">View Series&nbsp;<i class="glyphicon glyphicon-chevron-right"></i></span>
+							</div>
+						</a>
+
+					</div>
 				</div>
 			<?php endwhile; ?>
 		</div>
-		<?php the_posts_navigation(); ?>
 	</div>
 </div>

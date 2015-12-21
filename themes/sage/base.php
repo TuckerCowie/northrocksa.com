@@ -21,27 +21,32 @@ use Roots\Sage\Wrapper;
     <?php if (!Setup\display_sidebar()) : ?>
       <div role="document">
         <div class="content">
-          <main class="main">
+          <main>
             <?php include Wrapper\template_path(); ?>
           </main><!-- /.main -->
+          <?php
+            do_action('get_footer');
+            get_template_part('templates/footer');
+            wp_footer();
+          ?>
         </div><!-- /.content -->
       </div><!-- /.wrap -->
     <?php else: ?>
       <div role="document" class="container">
         <div class="content row">
-          <main class="main">
+          <main class="col-md-8">
             <?php include Wrapper\template_path(); ?>
           </main>
-          <aside class="sidebar" style="padding-top: 2rem;">
+          <aside class="col-sm-4" style="padding-top: 2rem;">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         </div><!-- /.content -->
       </div><!-- /.wrap -->
+      <?php
+        do_action('get_footer');
+        get_template_part('templates/footer');
+        wp_footer();
+      ?>
     <?php endif; ?>
-    <?php
-      do_action('get_footer');
-      get_template_part('templates/footer');
-      wp_footer();
-    ?>
   </body>
 </html>
