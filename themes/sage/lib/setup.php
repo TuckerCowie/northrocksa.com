@@ -27,7 +27,10 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
-    'top_navigation' => __('Top Navigation', 'sage')
+    'top_navigation' => __('Top Navigation', 'sage'),
+    'left-footer_navigation' => __('Footer Left Navigation', 'sage'),
+    'center-footer_navigation' => __('Footer Center Navigation', 'sage'),
+    'right-footer_navigation' => __('Footer Right Navigation', 'sage')
   ]);
 
   // Enable post thumbnails
@@ -37,6 +40,7 @@ function setup() {
   add_theme_support('post-thumbnails');
 
   add_image_size('video', 620, 349, ['center', 'center']);
+
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
@@ -75,35 +79,8 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Footer Left Widget', 'sage'),
-    'id'            => 'sidebar-footer-1',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
-
-  register_sidebar([
-    'name'          => __('Footer Left-Center Widget', 'sage'),
-    'id'            => 'sidebar-footer-2',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
-
-  register_sidebar([
-    'name'          => __('Footer Right-Center Widget', 'sage'),
-    'id'            => 'sidebar-footer-3',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
-  ]);
-
-  register_sidebar([
     'name'          => __('Footer Right Widget', 'sage'),
-    'id'            => 'sidebar-footer-4',
+    'id'            => 'sidebar-footer',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
@@ -126,7 +103,9 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page(),
-    is_post_type_archive('series')
+    is_post_type_archive('series'),
+    is_post_type_archive('videos')
+
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
