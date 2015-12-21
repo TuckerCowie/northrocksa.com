@@ -25,20 +25,36 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
-        $(function(){
-          $('.dropdown').hover(function() {
-              $(this).addClass('open');
-            },
-            function() {
-              $(this).removeClass('open');
-          });
-          var element = $('.nr_parallax-bg');
+        
+        // Remove clickable dropdowns
+        $('.dropdown').hover(function() {
+            $(this).addClass('open');
+          },
+          function() {
+            $(this).removeClass('open');
+        });
+
+        // Paralax elements
+        var element = $('.nr_parallax-bg');
+        if (element[0]) {
           setParallaxPosition(element, 200);
           $(window).scroll(function() {
             setParallaxPosition(element, 200);
           });
-          $('.nr_video-box').colorbox({iframe:true, maxWidth: '75%', maxHeight: '65%'});
-        });
+        }
+
+        // Fancybox videos
+        $('.nr_video-box').fancybox(
+          { 
+            beforeLoad: function() {
+              console.log('Fancybox');
+            },
+            iframe: {
+              scrolling: 'none',
+              preload: true
+            }
+          });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -88,6 +104,7 @@
 
       // Fire common finalize JS
       UTIL.fire('common', 'finalize');
+
     }
   };
 
