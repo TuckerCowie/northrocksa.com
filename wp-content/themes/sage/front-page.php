@@ -3,7 +3,7 @@
 
 	<?php if (have_rows('promo')): ?>
 		<?php while(have_rows('promo')): the_row(); ?>
-		<?php $video = Vimeo\getVideo(get_sub_field('intro_video_id')); var_dump(get_field('promo')); ?>
+		<?php $video = Vimeo\getVideo(get_sub_field('intro_video_id')); ?>
 		<div class="jumbotron" style="background-image: url(<?= the_sub_field('background_image'); ?>);">
 			<h1><?= the_sub_field('title'); ?></h1>
 			<?php if(isset($video)): ?>
@@ -15,8 +15,8 @@
 		<?php endwhile; ?>
 	<?php endif; ?>
 
+	<?php if (have_rows('main_conversion') && have_rows('conversion_mosiac')): ?>
 	<div class="container nr_mosiac">
-		<?php if (have_rows('main_conversion') && have_rows('conversion_mosiac')): ?>
 		<div class="nr_mosiac_row">
 			<?php 
 			$sermon_series = new WP_Query(['post_type'=>'series', 'posts_per_page'=>1]);
@@ -67,8 +67,8 @@
 				</div>
 			</div>
 		</div>
-		<?php endif; ?>	
 	</div>
+	<?php endif; ?>	
 
 	<div class="nr_parallax-bg text-center" style="background-image: url(<?= the_field('parallax_background'); ?>);>">
 		<div class="container">
@@ -85,12 +85,12 @@
 					$card_count = count($cards);
 					$card_classes = 'col-sm-' . 12 / $card_count;
 					foreach ($cards as $card) { ?>
-						<div class="<?= $card_classes ?>" href="<?= $card['button_link']; ?>">
-							<a class="nr_card text-center">
-								<img class="nr_card_image" src="<?= $card['image']; ?>">
+						<div class="<?= $card_classes ?>">
+							<a class="nr_card text-center" href="<?= $card['button_link']; ?>">
+								<?php if ($card['image']): ?><img class="nr_card_image" src="<?= $card['image']; ?>"><?php endif; ?>
 								<div class="nr_card_content">
 									<p><?= $card['content']; ?></p>
-									<span class="btn btn-default btn-block"><?= $card['button_label']; ?></span>
+									<?php if ($card['image']): ?><span class="btn btn-default btn-block"><?= $card['button_label']; ?></span><?php endif; ?>
 								</div>
 							</a>
 						</div>
