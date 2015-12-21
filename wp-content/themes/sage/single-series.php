@@ -34,7 +34,7 @@
 				<tr>
 					<td class="nr_sermons-table_date"><?php the_sub_field('date'); ?></td>
 					<td class="nr_sermons-table_video">
-						<a class="na_video-box" href="//player.vimeo.com/video/<?php the_sub_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615" target="_blank">
+						<a class="nr_video-box" href="//player.vimeo.com/video/<?php the_sub_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615">
 							<img src="<?= get_template_directory_uri(); ?>/assets/images/play-small.svg" alt="View Episode">
 						</a>
 					</td>
@@ -46,8 +46,8 @@
 						<?php endif; ?>
 					</td>
 					<td class="nr_sermons-table_title">
-						<a class="na_video-box" href="//player.vimeo.com/video/<?php the_sub_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615" target="_blank">
-							<?= $video->title; ?>Sermon Video
+						<a class="nr_video-box" href="//player.vimeo.com/video/<?php the_sub_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615">
+							<?= $video ? $video->title : 'Sermon Video'; ?>
 						</a>
 					</td>
 					<td class="nr_sermons-table_social text-right">

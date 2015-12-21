@@ -1,18 +1,18 @@
 <?php use Roots\Sage\Titles; ?>
 <?php get_template_part('templates/page', 'header'); ?>
-<div class="container">
-	<h1><?php Titles\title(); ?></h1>
-	<?php if (!have_posts()) : ?>
-	  <div class="alert alert-warning">
-	    <?php _e('Sorry, no results were found.', 'sage'); ?>
+
+<h1><?php Titles\title(); ?></h1>
+<?php if (!have_posts()) : ?>
+	<article>
+	  <div class="alert alert-danger">
+	    <?php _e('Sorry, no articles were found.', 'sage'); ?>
 	  </div>
-	  <?php get_search_form(); ?>
-	<?php endif; ?>
+	</article>
+<?php endif; ?>
 
-	<?php while (have_posts()) : the_post(); ?>
-	  <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
-	<?php endwhile; ?>
+<?php while (have_posts()) : the_post(); ?>
+  <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+<?php endwhile; ?>
 
-	<?php the_posts_navigation(); ?>
-</div>
+<?php the_posts_navigation(); ?>
 

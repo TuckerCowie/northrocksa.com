@@ -8,6 +8,7 @@
 }
 .search-form .search-field {
   @extend .form-control;
+  height: 42px; 
 }
 .search-form .search-submit {
   @extend .btn;

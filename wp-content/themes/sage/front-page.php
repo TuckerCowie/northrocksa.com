@@ -3,7 +3,7 @@
 
 	<?php if (have_rows('promo')): ?>
 		<?php while(have_rows('promo')): the_row(); ?>
-		<?php $video = Vimeo\getVideo(get_sub_field('intro_video_id')) ?>
+		<?php $video = Vimeo\getVideo(get_sub_field('intro_video_id')); var_dump(get_field('promo')); ?>
 		<div class="jumbotron" style="background-image: url(<?= the_sub_field('background_image'); ?>);">
 			<h1><?= the_sub_field('title'); ?></h1>
 			<?php if(isset($video)): ?>
