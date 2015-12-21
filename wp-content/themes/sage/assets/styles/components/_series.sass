@@ -1,0 +1,43 @@
+.nr_series
+	&_thumbnail
+		width: 100%
+		margin-top: 20px
+		+aspect-ratio(16,9)
+		> .content
+				background-size: cover
+				background-position: center center
+		&:hover &_screen
+			opacity: 1
+		&_screen
+			height: 100%
+			width: 100%
+			opacity: 0
+			background-color: rgba(#fff, 0.8)
+			transition: opacity 200ms ease
+			> *
+				+vertical-align()
+
+.single-series
+	background-color: #000
+	background-position: center top
+	background-size: aspect-fill
+	background-attachment: fixed
+	background-image: url('/wp-content/themes/sage/assets/images/crowd-worships.jpg')
+	.widget
+		color: #fff
+		text-shadow: 0 2px 5px #000
+			
+.nr_series-single
+	text-shadow: 0 2px 5px #000
+	color: #fff
+	&_image
+		width: 100%
+	&_meta
+		+make-row(30px)
+		margin-top: 20px
+		margin-bottom: 20px
+		h2
+			margin: 0
+		a
+			margin-left: 20px
+			color: $brand-primary

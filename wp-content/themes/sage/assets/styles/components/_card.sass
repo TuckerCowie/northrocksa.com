@@ -1,0 +1,46 @@
+.nr_card
+	display: block
+	background-color: #fff
+	color: $text-color
+	box-shadow: 0 2px 4px rgba(0,0,0,0.12)
+	margin-bottom: 10px
+	
+	&--red
+		border-radius: 8px
+		padding: 10px
+		background-color: $brand-primary
+		box-shadow: 0 2px 4px rgba(0,0,0,0.12)
+
+
+	&--video
+		background-size: cover
+		background-position: center center
+		&_tray
+			background-color: #fff
+		> .nr_card_content
+			padding-top: 0
+			position: relative
+		&_badge > img
+			margin-top: -25px
+
+	&_image
+		width: 100%
+		&--mosiac, &--mosiac-sm, &--video
+			> .content
+				background-size: cover
+				background-position: center center 
+		&--video
+			+aspect-ratio(16,9)
+		&--mosiac
+			+aspect-ratio(475,420)
+		&--mosiac-sm
+			+aspect-ratio(234,187)
+
+	&_link
+		font-size: 18px
+		padding: 10px
+		color: $brand-primary
+
+	&_content
+		font-family: $font-family-serif
+		padding: 20px
