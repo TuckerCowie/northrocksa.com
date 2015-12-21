@@ -1,11 +1,4 @@
-themes/index.php
-themes/twenty*/
-upgrade/
-uploads/
-debug.log
-/index.php
-
-.sublime-*
+*.sublime-*
 
 *~
 .DS_Store
@@ -66,9 +59,14 @@ wp-content/mysql.sql
 /xmlrpc.php
 /wp-admin
 /wp-includes
+/wp-content/debug.log
 /wp-content/index.php
 /wp-content/themes/twentyten
 /wp-content/themes/index.php
+/wp-content/themes/index.php
+/wp-content/themes/twenty*/
+/wp-content/upgrade/
+/wp-content/uploads/
 /wp-content/plugins/index.php
 
 # large/disallowed file types
