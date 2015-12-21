@@ -12,6 +12,12 @@
 
 (function($) {
 
+  function setParallaxPosition(element, offset) {
+    offset = offset || 0;
+    var y = (element.offset().top - window.pageYOffset - offset) * 1.1;
+    element.css('background-position', '50% ' + y + 'px');
+  }
+
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
   var Sage = {
@@ -26,6 +32,12 @@
             function() {
               $(this).removeClass('open');
           });
+          var element = $('.nr_parallax-bg');
+          setParallaxPosition(element, 200);
+          $(window).scroll(function() {
+            setParallaxPosition(element, 200);
+          });
+          $('.nr_video-box').colorbox({iframe:true, maxWidth: '75%', maxHeight: '65%'});
         });
       },
       finalize: function() {
