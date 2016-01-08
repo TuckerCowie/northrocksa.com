@@ -12,6 +12,10 @@
 
 (function($) {
 
+  function elementIsShowing(element) {
+    return element.offset().top < window.pageYOffset + window.innerHeight && element.offset().top + element.outerHeight() > window.pageYOffset;
+  }
+
   function setParallaxPosition(element, offset) {
     offset = offset || 0;
     var y = (element.offset().top - window.pageYOffset - offset) * 1.1;
@@ -37,9 +41,11 @@
         // Paralax elements
         var element = $('.nr_parallax-bg');
         if (element[0]) {
-          setParallaxPosition(element, 200);
+            setParallaxPosition(element, 100);
           $(window).scroll(function() {
-            setParallaxPosition(element, 200);
+            if (elementIsShowing(element)) {
+              setParallaxPosition(element, 100);
+            }
           });
         }
 

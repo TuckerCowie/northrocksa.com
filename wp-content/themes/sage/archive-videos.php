@@ -12,7 +12,7 @@
 				<div class="col-md-4">
 					<?php $link = get_field('type') == 'vimeo' ? 'https://player.vimeo.com/video/' . get_field('vimeo_id') . '?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615' : 'https://www.youtube.com/embed/' . get_field('youtube_id'); ?>
 					<a class="nr_card nr_card--video text-center na_video-box" href="<?= $link; ?>" style="background-image: url(<?= wp_get_attachment_url( get_post_thumbnail_id()); ?>);">
-						<div class="nr_card_image nr_card_image--video">
+						<div class="nr_card_image nr_card_image--16x9">
 							<div class="content">
 							</div>
 						</div>
