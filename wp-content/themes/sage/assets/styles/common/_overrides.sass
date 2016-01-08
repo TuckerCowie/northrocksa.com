@@ -7,7 +7,8 @@ a
 // Buttons
 .btn
 	font-size: 18px
-	// line-height: 60px
+	font-weight: 900
+	text-transform: uppercase
 	border-width: 2px
 	font-family: $font-family-sans-serif
 	overflow: hidden
@@ -15,10 +16,10 @@ a
 // Dropdowns
 @media screen and (min-width: $screen-sm)
 	.dropdown-menu
-		top: 101%
+		border: none
 		border-radius: 0 0 3px 3px
 		border-top: 0
-		box-shadow: 0 2px 4px $shadow-color
+		box-shadow: 0 2px 4px rgba(0,0,0,0.4)
 		padding: 0
 		overflow: hidden
 
@@ -28,6 +29,7 @@ a
 			> a
 				text-align: center
 				line-height: 40px
+				font-weight: 700
 
 			&:last-child
 				border-bottom: 0
@@ -35,17 +37,23 @@ a
 // Jumbotron
 .jumbotron
 	border-radius: 0
-	height: 300px
+	height: 325px
 	text-align: center
 	margin: 0 
 	background-position: center center
 	background-size: 101%
+	@media screen and (min-width: $screen-sm)
+		padding-top: 105px
 
 // Nav
 .nav > li:hover > a
 	color: #fff
 
 // Navbar
+.navbar
+	border: none
+	box-shadow: 0 2px 4px rgba(0,0,0,0.4)
+
 .navbar-toggle
 	height: 30px
 	width: 30px
