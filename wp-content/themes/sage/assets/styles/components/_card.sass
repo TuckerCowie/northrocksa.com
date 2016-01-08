@@ -3,8 +3,9 @@
 	background-color: #fff
 	color: $text-color
 	box-shadow: 0 2px 4px rgba(0,0,0,0.12)
-	margin-bottom: 10px
-	
+	@media screen and (max-width: $screen-sm)
+		margin-bottom: 20px
+
 	&--blank
 		border-radius: 8px
 		padding: 10px
@@ -24,16 +25,20 @@
 
 	&_image
 		width: 100%
-		&--mosiac, &--mosiac-sm, &--video
-			> .content
+		> .content
+			background-size: cover
+			background-position: center center 
+		&--1x1
+			+aspect-ratio(1.105,1)
+		&--flex-grow
+			@media screen and (max-width: $screen-sm)
+				+aspect-ratio(1.105,1)
+			@media screen and (min-width: $screen-sm)
+				flex: 1
 				background-size: cover
 				background-position: center center 
-		&--video
+		&--16x9
 			+aspect-ratio(16,9)
-		&--mosiac
-			+aspect-ratio(475,420)
-		&--mosiac-sm
-			+aspect-ratio(234,187)
 
 	&_link
 		font-size: 18px
