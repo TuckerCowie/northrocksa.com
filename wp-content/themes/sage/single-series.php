@@ -28,7 +28,7 @@
 			<?php while(have_rows('sermons')): the_row(); ?>
 				<?php $video = Youtube\getVideo(get_sub_field('youtube_id')); ?>
 				<tr>
-					<td class="nr_sermons-table_date"><?php the_sub_field('date'); ?></td>
+					<td class="nr_sermons-table_date"><?= date('m/d', strtotime($video->publishedAt)); ?></td>
 					<td class="nr_sermons-table_video">
 						<a class="nr_video-box" href="https://www.youtube.com/embed/<?php the_sub_field('youtube_id'); ?>">
 							<img src="<?= get_template_directory_uri(); ?>/assets/images/play-small.svg" alt="View Episode">
