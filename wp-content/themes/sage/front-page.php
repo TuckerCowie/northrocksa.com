@@ -5,7 +5,7 @@
 		<div class="jumbotron">
 			<?php if(get_sub_field('background_video')): ?>
 				<div class="jumbotron_video">
-					<video autoplay loop poster="<?= the_sub_field('background_image'); ?>">
+					<video muted autoplay loop poster="<?= the_sub_field('background_image'); ?>">
 						<source src="<?= the_sub_field('background_video'); ?>">
 						<img src="<?= the_sub_field('background_image'); ?>" alt="Your browser does not support HTML 5 Videos">
 					</video>
