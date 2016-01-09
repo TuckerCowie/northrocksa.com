@@ -1,5 +1,5 @@
 <?php use Roots\Sage\Titles; ?>
-<?php use NR\Vimeo; ?>
+<?php use NR\Youtube; ?>
 <?php while (have_posts()) : the_post(); ?>
 <div class="nr_series-single">
 	<h1 class="text-white">
@@ -20,17 +20,17 @@
 		</div>
 	</h1>
 	<?php if(has_post_thumbnail()): ?>
-		<img class="nr_card nr_series-single_image" src="<?= wp_get_attachment_url( get_post_thumbnail_id() ) ?>">
+		<img class="nr_card nr_card--margin nr_series-single_image" src="<?= wp_get_attachment_url( get_post_thumbnail_id() ) ?>">
 	<?php endif; ?>
 	<?php the_content(); ?>
 	<?php if(have_rows('sermons')): ?>
 		<table class="nr_sermons-table">
 			<?php while(have_rows('sermons')): the_row(); ?>
-				<?php $video = Vimeo\getVideo(get_sub_field('vimeo_id')); ?>
+				<?php $video = Youtube\getVideo(get_sub_field('youtube_id')); ?>
 				<tr>
 					<td class="nr_sermons-table_date"><?php the_sub_field('date'); ?></td>
 					<td class="nr_sermons-table_video">
-						<a class="nr_video-box" href="//player.vimeo.com/video/<?php the_sub_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615">
+						<a class="nr_video-box" href="https://www.youtube.com/embed/<?php the_sub_field('youtube_id'); ?>">
 							<img src="<?= get_template_directory_uri(); ?>/assets/images/play-small.svg" alt="View Episode">
 						</a>
 					</td>
@@ -42,18 +42,18 @@
 						<?php endif; ?>
 					</td>
 					<td class="nr_sermons-table_title">
-						<a class="nr_video-box" href="//player.vimeo.com/video/<?php the_sub_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615">
+						<a class="nr_video-box" href="https://www.youtube.com/embed/<?php the_sub_field('youtube_id'); ?>">
 							<?= $video ? $video->title : 'Sermon Video'; ?>
 						</a>
 					</td>
 					<td class="nr_sermons-table_social text-right">
-						<a target="_blank" href="https://plus.google.com/share?url=https://vimeo.com/<?php the_sub_field('vimeo_id'); ?>">
+						<a target="_blank" href="https://plus.google.com/share?url=https://www.youtube.com/watch?v=<?php the_sub_field('youtube_id'); ?>">
 							<img src="<?= get_template_directory_uri();?>/assets/images/social-google-plus.svg">
 						</a>
-						<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://vimeo.com/<?php the_sub_field('vimeo_id'); ?>">
+						<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/watch?v=<?php the_sub_field('youtube_id'); ?>">
 							<img src="<?= get_template_directory_uri();?>/assets/images/social-facebook.svg">
 						</a>
-						<a target="_blank" href="https://twitter.com/intent/tweet?url=https://vimeo.com/<?php the_sub_field('vimeo_id'); ?>&original_referer=https://vimeo.com/<?php the_sub_field('vimeo_id'); ?>">
+						<a target="_blank" href="https://twitter.com/intent/tweet?url=https://www.youtube.com/watch?v=<?php the_sub_field('youtube_id'); ?>&original_referer=https://www.youtube.com/watch?v=<?php the_sub_field('youtube_id'); ?>">
 							<img src="<?= get_template_directory_uri();?>/assets/images/social-twitter.svg">
 						</a>
 					</td>

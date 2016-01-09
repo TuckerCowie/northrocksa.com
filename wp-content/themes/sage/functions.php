@@ -16,7 +16,8 @@ $includes = [
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
   'lib/customizer.php', // Theme customizer
-  'lib/vimeo.php'      // Vimeo Resource
+  'lib/vimeo.php',      // Vimeo Resource
+  'lib/youtube.php'      // Youtube Resource
 ];
 
 foreach ($includes as $file) {
