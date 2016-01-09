@@ -1,7 +1,7 @@
-<header class="banner">
+<header class="nr_navbar-container">
   <div class="container">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-nav" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>

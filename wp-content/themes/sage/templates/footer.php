@@ -1,13 +1,13 @@
 <footer class="container-fluid">
   <div class="container">
   	<div class="row" style="margin-bottom: 20px;">
-  		<div class="col-md-9">
+  		<div class="col-sm-6 col-md-9">
   			<a href="/">
           <img width="195px" src="<?= get_template_directory_uri() . '/assets/images/logo-horizontal-white.png'; ?>" height="100%">
         </a>
   			<!-- White Logo -->
   		</div>
-  		<div class="col-md-3 text-right">
+  		<div class="col-sm-6 col-md-3 text-right">
         <a class="nr_social-link" target="_blank" href="https://plus.google.com/108064111584202502836"><img src="<?= get_template_directory_uri() . '/assets/images/social-google-plus.svg'; ?>"></a>
         <a class="nr_social-link" target="_blank" href="https://www.facebook.com/northrocksa"><img src="<?= get_template_directory_uri() . '/assets/images/social-facebook.svg'; ?>"></a>
         <a class="nr_social-link" target="_blank" href="https://twitter.com/northrocksa"><img src="<?= get_template_directory_uri() . '/assets/images/social-twitter.svg'; ?>"></a>
@@ -47,7 +47,7 @@
           ?>
       </div>
   		<div class="col-md-3">
-        <div class="nr_card nr_card--red">
+        <div class="nr_card nr_card--blank">
 		      <?php dynamic_sidebar('sidebar-footer'); ?>
         </div>
   		</div>

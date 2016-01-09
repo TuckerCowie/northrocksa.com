@@ -1,4 +1,6 @@
 .nr_series
+	@media screen and (min-width: $screen-sm)
+		padding-top: 105px
 	&_thumbnail
 		width: 100%
 		margin-top: 20px
@@ -30,14 +32,12 @@
 .nr_series-single
 	text-shadow: 0 2px 5px #000
 	color: #fff
+	> h1 > .label
+		font-size: 16px
+		line-height: 100%
+		text-transform: uppercase
+		font-weight: 500
+		vertical-align: middle
+		text-shadow: none
 	&_image
 		width: 100%
-	&_meta
-		+make-row(30px)
-		margin-top: 20px
-		margin-bottom: 20px
-		h2
-			margin: 0
-		a
-			margin-left: 20px
-			color: $brand-primary

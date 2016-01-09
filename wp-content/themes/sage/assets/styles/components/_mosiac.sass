@@ -1,6 +1,21 @@
 .nr_mosiac
 	margin-top: -50px
-	&_row
-		+make-row(10px)
-	&_col
-		+make-sm-column(6, 10px)
+	@media screen and (min-width: $screen-sm)
+		&_container
+			display: flex
+			justify-content: space-between
+			align-items: stretch
+	    	align-content: stretch
+		&_flex-tile
+			display: flex
+			&--column
+				flex-direction: column
+			&--horizontal-half
+				width: 49.5%
+			&--vertical
+				flex: 1
+				display: flex
+				margin-bottom: 2%
+				justify-content: space-between
+				&:last-child
+					margin-bottom: 0
