@@ -14,3 +14,7 @@
   @extend .btn;
   @extend .btn-default;
 }
+
+.form-horizontal .control-label {
+	line-height: 38px;
+}
