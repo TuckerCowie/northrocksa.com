@@ -8,7 +8,8 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass": "3.3.6",
-    "jquery-colorbox": "colorbox#~1.6.3"
+    "jquery-colorbox": "colorbox#~1.6.3",
+    "formstone": "~0.8.35"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -37,6 +38,15 @@
       "main": [
         "jquery.colorbox-min.js"
       ]
+    },
+    "formstone": {
+      "main": [
+        "./dist/js/core.js",
+        "./dist/js/mediaquery.js"
+      ],
+      "dependencies": {
+        "jquery": ">= 1.9.0"
+      }
     }
   }
 }

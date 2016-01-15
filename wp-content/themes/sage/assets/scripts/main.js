@@ -49,17 +49,36 @@
           });
         }
 
-        // Colorbox videos
-        $('.nr_video-box').colorbox({
-          iframe: true,
-          innerWidth: '640',
-          innerHeight: '390'
+        function cbEnable() {  
+          console.log('CB Enabled');
+          $('.nr_video-box').colorbox({
+            iframe: true,
+            innerWidth: '640',
+            innerHeight: '390'
+          });
+        }
+
+        function cbDisable() {  
+          console.log('CB Disabled');
+          $('.nr_video-box').each(function() {
+            $this = $(this);
+            $this.attr('target', '_blank');
+            $this.colorbox.remove();
+          });
+        }
+
+        $.mediaquery({
+          minWidth: [ 768 ],
+          maxWidth: [ 767 ]
         });
 
-        // Colorbox images
-        $('.nr_image-box').colorbox({
-          maxWidth: '75%',
-          photo: true
+        $(window).on('mqchange.mediaquery', function(e, data) {
+          if (data.maxWidth === 767) {
+            cbDisable();
+          }
+          if (data.minWidth === 768) {
+            cbEnable();
+          }   
         });
 
       },
