@@ -35,8 +35,7 @@
     },
     "jquery-colorbox": {
       "main": [
-        "jquery.colorbox-min.js",
-        "./example2/colorbox.css"
+        "jquery.colorbox-min.js"
       ]
     }
   }
