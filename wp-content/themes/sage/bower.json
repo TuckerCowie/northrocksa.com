@@ -8,7 +8,7 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass": "3.3.6",
-    "fancybox": "~2.1.5"
+    "jquery-colorbox": "colorbox#~1.6.3"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -31,24 +31,6 @@
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
-      ]
-    },
-    "fancybox": {
-      "main": [
-        "./source/jquery.fancybox.js",
-        "./source/jquery.fancybox.js",
-        "./source/fancybox_loading.gif",
-        "./source/fancybox_loading@2x.gif",
-        "./source/fancybox_overlay.gif",
-        "./source/fancybox_sprite.gif",
-        "./source/fancybox_sprite@2x.gif",
-        "./source/blank.gif",
-        "./source/helpers/fancybox_buttons.gif",
-        "./source/helpers/jquery.fancybox-buttons.css",
-        "./source/helpers/jquery.fancybox-buttons.js",
-        "./source/helpers/jquery.fancybox-media.js",
-        "./source/helpers/jquery.fancybox-thumbs.js",
-        "./source/helpers/jquery.fancybox-thumbs.css"
       ]
     }
   }

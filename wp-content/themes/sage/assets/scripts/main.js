@@ -50,16 +50,16 @@
         }
 
         // Fancybox videos
-        $('.nr_video-box').fancybox(
-          { 
-            beforeLoad: function() {
-              console.log('Fancybox');
-            },
-            iframe: {
-              scrolling: 'none',
-              preload: true
-            }
-          });
+        // $('.nr_video-box').fancybox(
+        //   { 
+        //     beforeLoad: function() {
+        //       console.log('Fancybox');
+        //     },
+        //     iframe: {
+        //       scrolling: 'none',
+        //       preload: true
+        //     }
+        //   });
 
       },
       finalize: function() {

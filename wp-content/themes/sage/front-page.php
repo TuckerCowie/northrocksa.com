@@ -2,9 +2,9 @@
 
 	<?php if (have_rows('promo')): ?>
 		<?php while(have_rows('promo')): the_row(); ?>
-		<div class="jumbotron">
+		<div class="promo">
 			<?php if(get_sub_field('background_video')): ?>
-				<div class="jumbotron_video">
+				<div class="promo_video">
 					<video muted autoplay loop poster="<?= the_sub_field('background_image'); ?>">
 						<source src="<?= the_sub_field('background_video'); ?>">
 						<img src="<?= the_sub_field('background_image'); ?>" alt="Your browser does not support HTML 5 Videos">
