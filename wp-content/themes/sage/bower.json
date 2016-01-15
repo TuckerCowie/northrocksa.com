@@ -32,6 +32,12 @@
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
       ]
+    },
+    "jquery-colorbox": {
+      "main": [
+        "jquery.colorbox-min.js",
+        "./example2/colorbox.css"
+      ]
     }
   }
 }

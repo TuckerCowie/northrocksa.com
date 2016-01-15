@@ -12,7 +12,7 @@
 			<?php while (have_posts()) : the_post();
 				$video = Vimeo\getVideo(get_field('vimeo_id')); ?>
 				<div class="col-md-4">
-					<a class="nr_card nr_card--video text-center na_video-box" href="https://player.vimeo.com/video/<?= get_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615" style="background-image: url(<?= $video->thumbnail_large; ?>);">
+					<a class="nr_card nr_card--video text-center nr_video-box" href="https://player.vimeo.com/video/<?= get_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615" style="background-image: url(<?= $video->thumbnail_large; ?>);">
 						<div class="nr_card_image nr_card_image--16x9">
 							<div class="content">
 							</div>
