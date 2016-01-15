@@ -52,7 +52,8 @@
         // Colorbox videos
         $('.nr_video-box').colorbox({
           iframe: true,
-          maxWidth: '75%'
+          innerWidth: '640',
+          innerHeight: '390'
         });
 
         // Colorbox images
