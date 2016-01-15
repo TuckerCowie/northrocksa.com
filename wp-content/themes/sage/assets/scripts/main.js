@@ -49,17 +49,17 @@
           });
         }
 
-        // Fancybox videos
-        $('.nr_video-box').fancybox(
-          { 
-            beforeLoad: function() {
-              console.log('Fancybox');
-            },
-            iframe: {
-              scrolling: 'none',
-              preload: true
-            }
-          });
+        // Colorbox videos
+        $('.nr_video-box').colorbox({
+          iframe: true,
+          maxWidth: '75%'
+        });
+
+        // Colorbox images
+        $('.nr_image-box').colorbox({
+          maxWidth: '75%',
+          photo: true
+        });
 
       },
       finalize: function() {
