@@ -1616,6 +1616,7 @@ function bs_popover( $atts, $content = null ) {
 
 	$atts = shortcode_atts( array(
         "title"  => false,
+        "image" => false,
         "xclass" => false,
         "data"   => false
 	), $atts );
@@ -1626,7 +1627,8 @@ function bs_popover( $atts, $content = null ) {
     $data_props = $this->parse_data_attributes( $atts['data'] );
       
     return sprintf( 
-      '<div class="%s"%s>%s%s</div>',
+      '<div style="background-color: #7D2B15; background-image: url(%s); background-position: center center; background-size: cover;" class="%s"%s>%s%s</div>',
+      $atts['image'],
       esc_attr( $class ),
       ( $data_props ) ? ' ' . $data_props : '',
       ( $atts['title'] ) ? '<h1>' . esc_html( $atts['title'] ) . '</h1>' : '',
