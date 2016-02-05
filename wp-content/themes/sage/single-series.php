@@ -5,7 +5,7 @@
 	<h1 class="text-white">
 		<?= Titles\title(); ?>
 		<?php if (!get_next_post()): ?>
-			<span class="label label-primary">Current Serries</span>
+			<span class="label label-primary">Current Series</span>
 		<?php endif; ?>
 		<div class="pull-right">
 			<a target="_blank" href="https://plus.google.com/share?url=<?= get_permalink(); ?>">
