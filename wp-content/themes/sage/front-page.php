@@ -16,7 +16,7 @@
 					<div class="text-center" style="display:table-cell; vertical-align: middle;">
 						<h1><?= the_sub_field('title'); ?></h1>
 						<?php if(get_sub_field('intro_video_id')): ?>
-							<a class="btn btn-play" href="https://player.vimeo.com/video/<?= get_sub_field('intro_video_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615">
+							<a class="btn btn-play nr_video-box" href="https://player.vimeo.com/video/<?= get_sub_field('intro_video_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615">
 								<img src="<?= get_template_directory_uri() . '/assets/images/play.svg' ?>">
 							</a>
 						<?php else: ?>
@@ -55,7 +55,7 @@
 						<div class="<?= $card_classes ?>">
 							<a class="nr_card text-center" href="<?= $card['button_link']; ?>">
 								<?php if ($card['image']): ?><img class="nr_card_image" src="<?= $card['image']; ?>"><?php endif; ?>
-								<div class="nr_card_content">
+								<div class="nr_card_content" style="flex: 1 0 auto; display: flex; flex-direction: column;">
 									<p><?= $card['content']; ?></p>
 									<?php if ($card['image']): ?><span class="btn btn-default btn-block"><?= $card['button_label']; ?></span><?php endif; ?>
 								</div>

@@ -43,9 +43,11 @@
         if (element[0]) {
             setParallaxPosition(element, 100);
           $(window).scroll(function() {
-            if (elementIsShowing(element)) {
-              setParallaxPosition(element, 100);
-            }
+            window.requestAnimationFrame(function() {
+              if (elementIsShowing(element)) {
+                setParallaxPosition(element, 100);
+              }
+            });
           });
         }
 
@@ -81,6 +83,8 @@
             cbEnable();
           }   
         });
+
+        $(window).trigger('mqchange.mediaquery', $.mediaquery("state"));
 
       },
       finalize: function() {
