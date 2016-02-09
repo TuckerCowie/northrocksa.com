@@ -1,4 +1,9 @@
+a.nr_card:hover
+	box-shadow: 0 4px 8px rgba(0,0,0,0.25)
+	> .nr_card_image
+		filter: brightness(1.15)
 .nr_card
+	transition: box-shadow 250ms ease
 	display: block
 	background-color: #fff
 	color: $text-color
@@ -27,6 +32,10 @@
 			margin-top: -25px
 
 	&_image
+		overflow: hidden
+		transition: 250ms
+			background-size: cover
+			background-position: center center 
 		width: 100%
 		> .content
 			background-size: cover
