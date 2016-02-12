@@ -19,8 +19,6 @@
 							<a class="btn btn-play nr_video-box" href="https://player.vimeo.com/video/<?= get_sub_field('intro_video_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615">
 								<img src="<?= get_template_directory_uri() . '/assets/images/play.svg' ?>">
 							</a>
-						<?php else: ?>
-							<img width="50px" src="<?= get_template_directory_uri() . '/assets/images/logo-mark.png' ?>">
 						<?php endif; ?>
 					</div>
 				</div>
