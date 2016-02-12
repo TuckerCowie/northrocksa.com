@@ -1,0 +1,22 @@
+.nr_sermon
+	display: flex
+	justify-content: flex-start
+	align-items: center
+	padding: 10px 20px
+	border-top: 1px solid rgba(255,255,255,0.15)
+	&_item
+		margin: 0 5px
+		&:last-child
+			margin-right: 0
+		&--right
+			margin-left: auto
+			& > *
+				padding: 0 5px
+				margin-left: 10px
+				&:hover
+					filter: brightness(0.5)
+a.nr_sermon_item
+	font-wieght: bold
+	color: #fff
+	&:hover
+		color: rgba(#fff, 0.85)
