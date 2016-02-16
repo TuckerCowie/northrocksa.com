@@ -14,18 +14,22 @@
   				<h1><?= Titles\title(); ?></h1>
 				<?php the_content(); ?>
 				<?php if (have_rows('staff')): ?>
-					<?php while(have_rows('staff')): the_row(); ?>
-						<div class="row">
-							<div class="col-sm-4">
-								<img class="nr_card" style="max-width: 100%" src="<?= the_sub_field('image'); ?>" alt="<?= the_sub_field('name'); ?>">
+					<div class="row">
+						<?php while(have_rows('staff')): the_row(); ?>
+							<div class="col-md-6">
+								<div class="staffer">
+									<div class="staffer_image">
+										<div class="content" style="background-image: url(<?= the_sub_field('image'); ?>)"></div>
+									</div>
+									<div class="staffer_info">
+										<h3><?= the_sub_field('name'); ?></h3>
+										<p><strong><?= the_sub_field('role'); ?></strong></p>
+										<p><?= the_sub_field('bio'); ?></p>
+									</div>
+								</div>
 							</div>
-							<div class="col-sm-8">
-								<h3><?= the_sub_field('name'); ?></h3>
-								<p><strong><?= the_sub_field('role'); ?></strong></p>
-								<p><?= the_sub_field('bio'); ?></p>
-							</div>
-						</div>
-					<?php endwhile; ?>
+						<?php endwhile; ?>
+					</div>
 				<?php endif; ?>
 			</div>
 		</div>
