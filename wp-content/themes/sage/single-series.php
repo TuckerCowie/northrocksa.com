@@ -2,27 +2,29 @@
 <?php use NR\Youtube; ?>
 <?php while (have_posts()) : the_post(); ?>
 <div class="nr_series-single">
-	<h1 class="text-white">
-		<?= Titles\title(); ?>
-		<?php if (!get_next_post()): ?>
-			<span class="label label-primary">Current Series</span>
-		<?php endif; ?>
-		<div class="pull-right">
-			<a target="_blank" href="https://plus.google.com/share?url=<?= get_permalink(); ?>">
-				<img src="<?= get_template_directory_uri();?>/assets/images/red-social-google-plus.svg">
-			</a>
-			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink(); ?>">
-				<img src="<?= get_template_directory_uri();?>/assets/images/red-social-facebook.svg">
-			</a>
-			<a target="_blank" href="https://twitter.com/intent/tweet?url=<?= get_permalink(); ?>&original_referer=<?= get_permalink(); ?>">
-				<img src="<?= get_template_directory_uri();?>/assets/images/red-social-twitter.svg">
-			</a>
-		</div>
-	</h1>
-	<?php if(has_post_thumbnail()): ?>
-		<img class="nr_series-single_image" src="<?= wp_get_attachment_url( get_post_thumbnail_id() ) ?>">
-	<?php endif; ?>
 	<div class="nr_card nr_card--dark">
+		<div class="nr_card_content">
+			<h1 class="text-white" style="margin:0">
+				<?= Titles\title(); ?>
+				<?php if (!get_next_post()): ?>
+					<span class="label label-primary">Current Series</span>
+				<?php endif; ?>
+				<div class="pull-right">
+					<a target="_blank" href="https://plus.google.com/share?url=<?= get_permalink(); ?>">
+						<img src="<?= get_template_directory_uri();?>/assets/images/social-google-plus.svg">
+					</a>
+					<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?= get_permalink(); ?>">
+						<img src="<?= get_template_directory_uri();?>/assets/images/social-facebook.svg">
+					</a>
+					<a target="_blank" href="https://twitter.com/intent/tweet?url=<?= get_permalink(); ?>&original_referer=<?= get_permalink(); ?>">
+						<img src="<?= get_template_directory_uri();?>/assets/images/social-twitter.svg">
+					</a>
+				</div>
+			</h1>
+		</div>
+		<?php if(has_post_thumbnail()): ?>
+			<img class="nr_series-single_image" src="<?= wp_get_attachment_url( get_post_thumbnail_id() ) ?>">
+		<?php endif; ?>
 		<div class="nr_card_content">
 			<?php the_content(); ?>
 		</div>
