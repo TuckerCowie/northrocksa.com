@@ -35,8 +35,8 @@
 		</div>
 	<?php endif; ?>	
 
-	<div class="nr_parallax-bg text-center" style="background-image: url(<?= the_field('parallax_background'); ?>);>">
-		<div class="container">
+	<div class="nr_parallax-bg" style="background-image: url(<?= the_field('parallax_background'); ?>);>">
+		<div class="container text-center">
 			<img width="50px" src="<?= get_template_directory_uri() . '/assets/images/logo-mark.png' ?>">
 			<h1><?= the_title(); ?></h1>
 			<?= the_content(); ?>

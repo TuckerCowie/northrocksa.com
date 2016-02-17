@@ -12,16 +12,6 @@
 
 (function($) {
 
-  function elementIsShowing(element) {
-    return element.offset().top < window.pageYOffset + window.innerHeight && element.offset().top + element.outerHeight() > window.pageYOffset;
-  }
-
-  function setParallaxPosition(element, offset) {
-    offset = offset || 0;
-    var y = (element.offset().top - window.pageYOffset - offset) * 1.1;
-    element.css('background-position', '50% ' + y + 'px');
-  }
-
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
   var Sage = {
@@ -38,16 +28,53 @@
             $(this).removeClass('open');
         });
 
-        // Paralax elements
-        var element = $('.nr_parallax-bg');
-        if (element[0]) {
-            setParallaxPosition(element, 100);
-          $(window).scroll(function() {
-            window.requestAnimationFrame(function() {
-              if (elementIsShowing(element)) {
-                setParallaxPosition(element, 100);
-              }
-            });
+        // Capture scrollTimer for multiple contexts
+        var scrollTimer = null;
+        // Query for parallax elements
+        var elements = $('.nr_parallax-bg');
+
+        // Sanity check
+        if (elements) {
+          // Gets called way too much
+          $(window).scroll(function () {
+            if (!scrollTimer) {
+              // Should be more than 60 so that there isn't ever more than one computation per frame (60fps)
+              // Higher is more efficient, although close to 100ms and above is clearly visible to user
+              scrollTimer = setTimeout(parallax, 61, elements, 0.05, 0);
+            }
+            // Didn't exectute because it was too soon, or a computation is in progress
+          });
+        }
+
+        /** 
+         * Efficiently adjusts the 'background-position' css of items in an array of DOM elements which are 
+         * currently within the bounds of the viewport to create a parallax effect.
+         *
+         * @arg {array} elements - jQuery array of DOM elements
+         * @arg {number} speed - float that controls the parallax position computation multiplier
+         * @arg {number} offset - number of pixels to offset the parallax position from the top
+         *
+         */
+        function parallax(elements, speed, offset) {
+          // Clear timer to enqueue new execution on next scroll
+          scrollTimer = null;
+          elements.each(function() {
+            // Cache variables
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var windowTop = window.pageYOffset;
+            var windowBottom =  windowTop + window.innerHeight;
+            // Avoid computations if element isn't in viewport
+            if (elementTop < windowBottom && elementBottom > windowTop) {
+              // Calculate new background position
+              var parallaxPosition = ((windowBottom - elementTop) * speed * -1) + offset;
+              var element = $(this);
+              // If this frame has too much overhead or if it is too late to update, wait for next frame
+              requestAnimationFrame(function() {
+                // Avoid huge fractions to alleviate rerenders by browser
+                element.css('background-position', '50% ' + parallaxPosition.toFixed() + 'px');
+              });
+            }
           });
         }
 
