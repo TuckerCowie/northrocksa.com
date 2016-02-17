@@ -24,9 +24,9 @@
 									<div class="staffer_info">
 										<h3><?= the_sub_field('name'); ?></h3>
 										<p><strong><?= the_sub_field('role'); ?></strong></p>
-										<p><?= the_sub_field('bio'); ?></p>
 									</div>
 								</div>
+								<?= the_sub_field('bio'); ?>
 							</div>
 						<?php endwhile; ?>
 					</div>
