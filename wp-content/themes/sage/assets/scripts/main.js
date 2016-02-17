@@ -33,19 +33,6 @@
         // Query for parallax elements
         var elements = $('.nr_parallax-bg');
 
-        // Sanity check
-        if (elements) {
-          // Gets called way too much
-          $(window).scroll(function () {
-            if (!scrollTimer) {
-              // Should be more than 60 so that there isn't ever more than one computation per frame (60fps)
-              // Higher is more efficient, although close to 100ms and above is clearly visible to user
-              scrollTimer = setTimeout(parallax, 61, elements, 0.05, 0);
-            }
-            // Didn't exectute because it was too soon, or a computation is in progress
-          });
-        }
-
         /** 
          * Efficiently adjusts the 'background-position' css of items in an array of DOM elements which are 
          * currently within the bounds of the viewport to create a parallax effect.
@@ -75,6 +62,19 @@
                 element.css('background-position', '50% ' + parallaxPosition.toFixed() + 'px');
               });
             }
+          });
+        }
+
+        // Sanity check
+        if (elements) {
+          // Gets called way too much
+          $(window).scroll(function () {
+            if (!scrollTimer) {
+              // Should be more than 60 so that there isn't ever more than one computation per frame (60fps)
+              // Higher is more efficient, although close to 100ms and above is clearly visible to user
+              scrollTimer = setTimeout(parallax, 61, elements, 0.05, 0);
+            }
+            // Didn't exectute because it was too soon, or a computation is in progress
           });
         }
 
