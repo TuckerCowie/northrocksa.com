@@ -103,6 +103,7 @@ function display_sidebar() {
     is_404(),
     is_front_page(),
     is_page(),
+    is_page_template('page-landing-page.php'),
     is_post_type_archive('series'),
     is_post_type_archive('videos')
 
