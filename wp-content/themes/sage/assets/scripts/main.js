@@ -72,7 +72,7 @@
             if (!scrollTimer) {
               // Should be more than 60 so that there isn't ever more than one computation per frame (60fps)
               // Higher is more efficient, although close to 100ms and above is clearly visible to user
-              scrollTimer = setTimeout(parallax, 61, elements, 0.05, 0);
+              scrollTimer = setTimeout(parallax, 61, elements, 0.125, 0);
             }
             // Didn't exectute because it was too soon, or a computation is in progress
           });
