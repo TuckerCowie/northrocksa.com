@@ -11,9 +11,24 @@
           <a class="navbar-brand" href="/">
             <img src="<?= get_template_directory_uri() . '/assets/images/logo-horizontal.png'; ?>" height="100%">
           </a>
+          <?php
+            $dateTime = new DateTime("now", new DateTimeZone('America/Chicago'));
+            $dateTime->setTimestamp(time());
+            $dayOfWeek = $dateTime->format('l');
+            $currentHour = $dateTime->format('H');
+            function isSundayMorning() {
+              return $dayOfWeek == 'sunday' && $currentHour > 7 && $currentHour < 13;
+            }
+            if (isSundayMorning()):
+          ?>
+            <a href="#" class="btn btn-default navbar-btn hidden-xs hidden-sm" style="border-color:#dd2233;color:#dd2233;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Watch Live</a>
+          <?php endif; ?>
         </div>
         <div class="collapse navbar-collapse nr_navbar" id="top-nav">
+          <?php if (isSundayMorning()): ?>
+            <a href="#" class="btn btn-default navbar-btn btn-block visible-xs-block" style="border-color:#dd2233;color:#dd2233;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Watch Live</a>
           <?php
+          endif;
           if (has_nav_menu('top_navigation')) :
             wp_nav_menu([
               'theme_location' => 'top_navigation',
