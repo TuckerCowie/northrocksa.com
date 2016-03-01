@@ -3,13 +3,14 @@
 		<h1 class="text-center"><?php the_sub_field('section_title') ?></h1>
 		<div class="text-center"><?php the_sub_field('section_body') ?></div>
 		<div class="row">
-			<?php if (have_rows('text_grid')): $i = 0;
+			<?php $columns = get_sub_field('columns');
+			if (have_rows('text_grid')): $i = 0;
 				while(have_rows('text_grid')): the_row(); ?>
-					<div class="col-md-6 text-center">
+					<div class="col-md-<?= 12 / $columns; ?> text-center">
 						<h3><?= the_sub_field('title');?></h3>
 						<p><?= the_sub_field('text');?></p>
 					</div>
-					<?php if ($i % 2) : ?>
+					<?php if ($i > 1 && $i % $columns) : ?>
 						</div><div class="row">
 					<?php endif; ?>
 				<?php $i++; endwhile;
