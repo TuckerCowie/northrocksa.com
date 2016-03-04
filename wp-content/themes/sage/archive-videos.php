@@ -1,4 +1,4 @@
-<?php use NR\Vimeo; ?>
+<?php use NR\Youtube; ?>
 <div class="nr_series container-fluid">
 	<div class="container text-center">
 		<h1>Other Videos</h1>
@@ -10,9 +10,9 @@
 		<?php endif; ?>
 		<div class="row">
 			<?php while (have_posts()) : the_post();
-				$video = Vimeo\getVideo(get_field('vimeo_id')); ?>
+				$video = Youtube\getVideo(get_field('video_id')); ?>
 				<div class="col-md-4">
-					<a class="nr_card nr_card--video text-center nr_video-box" href="https://player.vimeo.com/video/<?= get_field('vimeo_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615" style="background-image: url(<?= $video->thumbnail_large; ?>);">
+					<a class="nr_card nr_card--video text-center nr_video-box" href="https://www.youtube.com/embed/<?= get_field('video_id'); ?>" style="background-image: url(<?= $video->thumbnails->high->url; ?>);">
 						<div class="nr_card_image nr_card_image--16x9">
 							<div class="content">
 							</div>
@@ -23,7 +23,7 @@
 							</div>
 	    					<div class="nr_card_content text-primary">
 	    						<h4><?= the_title(); ?></h4>
-	    						<p class="text-muted">Uploaded <?= date('m/d/y', strtotime($video->upload_date)); ?> • <?= $video->stats_number_of_plays; ?> Plays</p>
+	    						<p class="text-muted">Uploaded <?= date('m/d/y', strtotime($video->publishedAt)); ?></p>
     						</div>
 						</div>
 					</a>

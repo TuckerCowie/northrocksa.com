@@ -1,4 +1,4 @@
-<?php use NR\Vimeo; ?>
+<?php use NR\Youtube; ?>
 <?php use Roots\Sage\Titles; ?>
 <?php while (have_posts()) : the_post(); ?>
 	<?php get_template_part('templates/page', 'header'); ?>
@@ -7,8 +7,8 @@
 			<div class="col-md-4" style="padding-top: 2rem">
 				<?php if( have_rows('video') ):
     				while ( have_rows('video') ) : the_row();
-    					$video = Vimeo\getVideo(get_sub_field('video_id')); ?>
-						<a class="nr_card nr_card--video text-center na_video-box" href="https://player.vimeo.com/video/<?= get_sub_field('video_id'); ?>?portrait=0&badge=0&byline=0&autoplay=1&portrait=0&color=B23615" style="background-image: url(<?= $video->thumbnail_large; ?>);">
+    					$video = Youtube\getVideo(get_sub_field('video_id')); ?>
+						<a class="nr_card nr_card--video text-center na_video-box" href="https://youtube.com/embed/<?= get_sub_field('video_id'); ?>" style="background-image: url(<?= $video->thumbnails->high->url; ?>);">
 							<div class="nr_card_image nr_card_image--16x9">
 								<div class="content">
 								</div>
