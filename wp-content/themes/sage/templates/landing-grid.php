@@ -11,10 +11,10 @@
 						<h3><?= the_sub_field('title');?></h3>
 						<p><?= the_sub_field('text');?></p>
 					</div>
-					<?php if ($i % $columns == $columns) : ?>
+					<?php if (($i + 1) % $columns == 0): ?>
 						</div><div class="row">
-					<?php endif; ?>
-				<?php $i++; endwhile;
+					<?php endif;
+				$i++; endwhile;
 			endif; ?>
 		</div>
 	</div>
