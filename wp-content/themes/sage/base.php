@@ -37,7 +37,7 @@ use Roots\Sage\Wrapper;
           <main class="col-md-8">
             <?php include Wrapper\template_path(); ?>
           </main>
-          <aside class="col-sm-4">
+          <aside class="col-md-4">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         </div><!-- /.content -->
