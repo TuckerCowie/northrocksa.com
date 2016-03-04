@@ -12,12 +12,11 @@
             <img src="<?= get_template_directory_uri() . '/assets/images/logo-horizontal.png'; ?>" height="100%">
           </a>
           <?php
-            $dateTime = new DateTime("now", new DateTimeZone('America/Chicago'));
-            $dateTime->setTimestamp(time());
-            $dayOfWeek = $dateTime->format('l');
-            $currentHour = $dateTime->format('H');
             function isSundayMorning() {
-              return $dayOfWeek == 'sunday' && $currentHour > 7 && $currentHour < 13;
+              $dateTime = new DateTime('now', new DateTimeZone('America/Chicago'));
+              $dateTime->setTimestamp(time());
+              $currentHour = $dateTime->format('H');
+              return ($dateTime->format('l') == 'sunday') && ($currentHour > 7) && ($currentHour < 13);
             }
             if (isSundayMorning()):
           ?>
