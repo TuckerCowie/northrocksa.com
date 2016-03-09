@@ -30,7 +30,21 @@
 	<?php if (have_rows('conversion_mosiac')): ?>
 		<div class="container nr_mosiac">
 			<div class="nr_mosiac_container">
-				<?php get_template_part('templates/mosiac', count(get_field('conversion_mosiac'))); ?>
+				<?php $sermon_series = new WP_Query(['post_type'=>'series', 'posts_per_page'=>1]);
+					if(get_field('conversion_mosiac') && $sermon_series->have_posts()):
+						while($sermon_series->have_posts()): $sermon_series->the_post(); ?>
+						 <a class="nr_mosiac_flex-tile nr_mosiac_flex-tile--column nr_mosiac_flex-tile--horizontal-half nr_card" href="<?= get_permalink(); ?>">
+						 	<div class="nr_card_image nr_card_image--1x1">
+						 		<div class="content" style="background-image: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0]; ?>);"></div>
+						 	</div>
+						 	<div class="nr_card_link">
+						 		<span class="text-primary">Current Series: <?= the_title(); ?></span>
+						 		<i class="glyphicon glyphicon-chevron-right pull-right"></i>
+						 	</div>
+						 </a>
+					<?php endwhile; wp_reset_query(); ?>
+					<?php get_template_part('templates/mosiac', count(get_field('conversion_mosiac')) + 1); ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	<?php endif; ?>	

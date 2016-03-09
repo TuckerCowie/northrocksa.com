@@ -31,7 +31,7 @@
         // Capture scrollTimer for multiple contexts
         var scrollTimer = null;
         // Query for parallax elements
-        var elements = $('.nr_parallax-bg');
+        // var elements = $('.nr_parallax-bg');
 
         /** 
          * Efficiently adjusts the 'background-position' css of items in an array of DOM elements which are 
