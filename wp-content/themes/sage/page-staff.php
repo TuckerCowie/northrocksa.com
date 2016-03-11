@@ -15,6 +15,15 @@
 							<div class="staffer_info">
 								<h3><?= the_sub_field('name'); ?></h3>
 								<p><strong><?= the_sub_field('role'); ?></strong></p>
+								<?php if (have_rows('social_links')): ?>
+									<div style="margin-bottom: 15px;">
+									<?php while (have_rows('social_links')): the_row(); ?>
+										<a href="<?= the_sub_field('link'); ?>" class="btn btn-primary" style="min-width: 50px">
+											<img src="<?= get_template_directory_uri() . '/assets/images/social-' . get_sub_field('type') . '.svg'; ?>" alt="<?= the_sub_field('name') . ' on ' . the_sub_field('type'); ?>">
+										</a>
+									<?php endwhile; ?>
+									</div>
+								<?php endif; ?>
 								<?= get_sub_field('full_width') ? the_sub_field('bio') : ''; ?>
 							</div>
 						</div>
