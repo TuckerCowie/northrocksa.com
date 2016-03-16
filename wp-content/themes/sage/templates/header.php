@@ -20,7 +20,7 @@
             }
             if (isSundayMorning()):
           ?>
-            <a href="#" class="btn btn-default navbar-btn hidden-xs hidden-sm" style="border-color:#dd2233;color:#dd2233;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Watch Live</a>
+            <a href="http://northrocksa.churchonline.org/" target="_blank" class="btn btn-default navbar-btn hidden-xs hidden-sm" style="border-color:#dd2233;color:#dd2233;"> <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Watch Live</a>
           <?php endif; ?>
         </div>
         <div class="collapse navbar-collapse nr_navbar" id="top-nav">
