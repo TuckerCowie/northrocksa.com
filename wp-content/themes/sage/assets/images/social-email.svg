@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="16px" viewBox="0 0 24 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>social-email</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Watch" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Previous-Series" transform="translate(-766.000000, -803.000000)" fill="#FFFFFF">
+            <g id="footer" transform="translate(0.000000, 764.000000)">
+                <g id="Social" transform="translate(766.000000, 37.493333)">
+                    <g id="social-email" transform="translate(0.000000, 2.000000)">
+                        <path d="M8,8.45508107 L1.4900184,15.0133333 L22.0484431,15.0133333 L15.5384615,8.45508107 L13.8521465,10.1553326 L13.2919368,10.7077745 C12.4517125,11.5549428 11.0874921,11.5556919 10.2465247,10.7077745 L9.6924631,10.1491338 L8,8.45508107 Z M1.38074981,0.0133333333 L22.1577117,0.0133333333 L14.1923077,8.04456716 L12.9113318,9.33144868 C12.2806965,9.96729578 11.2578947,9.96742659 10.6271298,9.33144868 L9.34615385,8.03988619 L1.38074981,0.0133333333 Z M23.5384615,1.39722983 L16.9192113,8.07118457 L23.5384615,14.7451393 L23.5384615,1.39722983 Z M9.56499837e-16,1.39722983 L6.61925019,8.07118457 L0,14.7451393 L9.56499837e-16,1.39722983 Z" id="Envelope"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
