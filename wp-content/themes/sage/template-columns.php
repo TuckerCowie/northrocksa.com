@@ -1,3 +1,8 @@
+<?php
+/**
+ * Template Name: Columns
+ */
+?>
 <?php use Roots\Sage\Titles; ?>
 <?php while (have_posts()) : the_post(); ?>
   <?php get_template_part('templates/page', 'header'); ?>
@@ -5,7 +10,7 @@
 		<h1 class="text-center"><?= Titles\title(); ?></h1>
 		<div class="row">
 			<?php $index = 1; while ( have_rows('steps') ) : the_row(); ?>
-				<div class="col-md-3 text-center nr_next-steps">
+				<div class="col-md-<?= 12/count(get_field('steps')); ?> text-center nr_next-steps">
 					<div class="nr_next-steps_window">
 						<div class="content" style="background-image:url(<?= the_sub_field('image') ?>);"></div>
 					</div>
