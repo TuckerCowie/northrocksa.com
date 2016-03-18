@@ -1,13 +1,15 @@
 .staffer
-	display: flex
-	justify-content: flex-start
-	align-items: center
-	margin: 20px 0
+	@media screen and (min-width: $screen-sm)
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		margin: 20px 0
+		&_image
+			width: 45%;
+			margin-right: 20px
 	&_image
 		+aspect-ratio(1, 1)
 		flex-shrink: 0
-		width: 45%;
-		margin-right: 20px
 		border-radius: 50%
 		overflow: hidden
 		> .content
