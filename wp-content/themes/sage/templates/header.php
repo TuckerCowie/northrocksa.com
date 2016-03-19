@@ -10,7 +10,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">
-            <img src="<?= get_template_directory_uri() . '/assets/images/logo-horizontal.png'; ?>" height="100%">
+            <img src="<?= get_template_directory_uri() . '/assets/images/logo-horizontal-2.png'; ?>" height="100%">
           </a>
         </div>
         <div class="collapse navbar-collapse nr_navbar" id="top-nav">
