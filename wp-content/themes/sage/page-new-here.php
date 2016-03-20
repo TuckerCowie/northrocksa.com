@@ -8,7 +8,7 @@
 				<?php if( have_rows('video') ):
     				while ( have_rows('video') ) : the_row();
     					$video = Youtube\getVideo(get_sub_field('video_id')); ?>
-						<a class="nr_card nr_card--video text-center na_video-box" href="https://youtube.com/embed/<?= get_sub_field('video_id'); ?>" style="background-image: url(<?= $video->thumbnails->high->url; ?>);">
+						<a class="nr_card nr_card--video text-center na_video-box" href="https://youtube.com/embed/<?= get_sub_field('video_id'); ?>" style="background-image: url(http://img.youtube.com/vi/<?= get_sub_field('video_id'); ?>/maxresdefault.jpg);">
 							<div class="nr_card_image nr_card_image--16x9">
 								<div class="content">
 								</div>

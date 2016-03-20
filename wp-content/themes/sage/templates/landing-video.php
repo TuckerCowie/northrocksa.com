@@ -7,7 +7,7 @@
 			<?php the_sub_field('section_body') ?>
 		</div>
 		<div class="col-md-6 <?= get_sub_field('section_alignment') != 'left' ? 'col-md-pull-6' : ''; ?>">
-			<a class="nr_card nr_card--video text-center na_video-box" href="https://youtube.com/embed/<?= get_sub_field('video_id'); ?>" style="background-image: url(<?= $video->thumbnails->high->url; ?>);">
+			<a class="nr_card nr_card--video text-center na_video-box" href="https://youtube.com/embed/<?= get_sub_field('video_id'); ?>" style="background-image: url(http://img.youtube.com/vi/<?= get_sub_field('video_id'); ?>/maxresdefault.jpg);">
 				<div class="nr_card_image nr_card_image--16x9">
 					<div class="content">
 					</div>
