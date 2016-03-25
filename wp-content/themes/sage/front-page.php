@@ -3,10 +3,12 @@
 	<?php if (have_rows('promo')): ?>
 		<?php while(have_rows('promo')): the_row(); ?>
 		<div class="promo">
-			<?php if(get_sub_field('background_video')): ?>
+			<?php if(get_sub_field('background_image') || get_sub_field('video_sources')): ?>
 				<div class="promo_video">
 					<video muted autoplay loop poster="<?= the_sub_field('background_image'); ?>">
-						<source src="<?= the_sub_field('background_video'); ?>">
+						<?php if (have_rows('video_sources')): while(have_rows('video_sources')): the_row(); ?>
+							<source src="<?= the_sub_field('source'); ?>">
+						<?php endwhile; endif; ?>
 						<img src="<?= the_sub_field('background_image'); ?>" alt="Your browser does not support HTML 5 Videos">
 					</video>
 				</div>
@@ -58,21 +60,17 @@
 	</div>
 
 	<div class="container">
-		<div class="row nr_flex-row">
+		<div class="flex-row">
 			<?php $cards = get_field('cards');
 				if ($cards) {
-					$card_count = count($cards);
-					$card_classes = 'col-sm-' . 12 / $card_count;
 					foreach ($cards as $card) { ?>
-						<div class="<?= $card_classes ?>">
-							<a class="nr_card text-center" href="<?= $card['button_link']; ?>">
-								<?php if ($card['image']): ?><img class="nr_card_image" src="<?= $card['image']; ?>"><?php endif; ?>
-								<div class="nr_card_content" style="flex: 1 0 auto; display: flex; flex-direction: column;">
-									<p><?= $card['content']; ?></p>
-									<?php if ($card['image']): ?><span class="btn btn-default btn-block"><?= $card['button_label']; ?></span><?php endif; ?>
-								</div>
-							</a>
-						</div>
+						<a class="nr_card nr_card--flex text-center flex-item flex-column" href="<?= $card['button_link']; ?>">
+							<?php if ($card['image']): ?><img class="nr_card_image" src="<?= $card['image']; ?>"><?php endif; ?>
+							<div class="nr_card_content flex-fill flex-column">
+								<p class="flex-fill"><?= $card['content']; ?></p>
+								<?php if ($card['image']): ?><span class="btn btn-default btn-block"><?= $card['button_label']; ?></span><?php endif; ?>
+							</div>
+						</a>
 					<?php }
 				} ?>
 		</div>

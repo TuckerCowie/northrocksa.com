@@ -7,3 +7,18 @@ h2
 .content.row
 	@media screen and (min-width: $screen-sm)
 		padding-top: 105px
+
+.flex
+  @media screen and (min-width: $screen-sm)
+    &-row
+      margin: 0 -15px
+      display: flex
+      justify-content: space-between
+    &-item
+      margin: 0 15px
+      flex: 1 0 0
+    &-column
+      display: flex
+      flex-direction: column
+    &-fill
+      flex: 1
