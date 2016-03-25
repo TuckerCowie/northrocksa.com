@@ -12,7 +12,7 @@
 			<?php while (have_posts()) : the_post();
 				$video = Youtube\getVideo(get_field('video_id')); ?>
 				<div class="col-md-4">
-					<a class="nr_card nr_card--video text-center nr_video-box" href="https://www.youtube.com/embed/<?= get_field('video_id'); ?>" style="background-image: url(<?= $video->thumbnails->high->url; ?>);">
+					<a class="nr_card nr_card--video text-center nr_video-box" href="https://www.youtube.com/embed/<?= get_field('video_id'); ?>" style="background-image: url(http://img.youtube.com/vi/<?= get_field('video_id'); ?>/maxresdefault.jpg);">
 						<div class="nr_card_image nr_card_image--16x9">
 							<div class="content">
 							</div>
