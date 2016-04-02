@@ -37,7 +37,7 @@
 						while($sermon_series->have_posts()): $sermon_series->the_post(); ?>
 						 <a class="nr_mosiac_flex-tile nr_mosiac_flex-tile--column nr_mosiac_flex-tile--horizontal-half nr_card" href="<?= get_permalink(); ?>">
 						 	<div class="nr_card_image nr_card_image--1x1">
-						 		<div class="content" style="background-image: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0]; ?>);"></div>
+						 		<div class="content" style="background-image: url(<?= the_field('square_feature_image'); ?>);"></div>
 						 	</div>
 						 	<div class="nr_card_link">
 						 		<span class="text-primary">Current Series: <?= the_title(); ?></span>
