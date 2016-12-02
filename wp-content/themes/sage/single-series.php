@@ -32,7 +32,7 @@
 			<?php while(have_rows('sermons')): the_row(); ?>
 				<div class="nr_sermon">
 					<?php $video = Youtube\getVideo(get_sub_field('youtube_id')); ?>
-					<span class="nr_sermon_item"><?= date('m/d', strtotime($video->publishedAt)); ?></span>
+					<span class="nr_sermon_item"><?= date('m/d', strtotime($video->recordingDetails->recordingDate || $video->snippet->publishedAt)); ?></span>
 					<a class="nr_sermon_item nr_video-box" href="https://www.youtube.com/embed/<?php the_sub_field('youtube_id'); ?>">
 						<img src="<?= get_template_directory_uri(); ?>/assets/images/play-small.svg" alt="View Episode">
 					</a>
@@ -42,7 +42,7 @@
 						</a>
 					<?php endif; ?>
 					<a class="nr_sermon_item nr_video-box" href="https://www.youtube.com/embed/<?php the_sub_field('youtube_id'); ?>">
-						<?= $video ? $video->title : 'Sermon Video'; ?>
+						<?= $video ? $video->snippet->title : 'Sermon Video'; ?>
 					</a>
 					<div class="nr_sermon_item nr_sermon_item--right">
 						<a target="_blank" href="https://plus.google.com/share?url=https://www.youtube.com/watch?v=<?php the_sub_field('youtube_id'); ?>">
