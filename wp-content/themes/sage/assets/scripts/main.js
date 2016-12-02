@@ -19,7 +19,7 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
-        
+
         // Remove clickable dropdowns
         $('.dropdown').hover(function() {
             $(this).addClass('open');
@@ -29,16 +29,17 @@
         });
 
         // Responsive colorbox
-        function cbEnable() {  
+        function cbEnable() {
           console.log('CB Enabled');
           $('.nr_video-box').colorbox({
             iframe: true,
             innerWidth: '640',
-            innerHeight: '390'
+            innerHeight: '390',
+            title: false,
           });
         }
 
-        function cbDisable() {  
+        function cbDisable() {
           console.log('CB Disabled');
           $('.nr_video-box').each(function() {
             $this = $(this);
@@ -58,7 +59,7 @@
           }
           if (data.minWidth === 768) {
             cbEnable();
-          }   
+          }
         });
 
         $(window).trigger('mqchange.mediaquery', $.mediaquery("state"));
