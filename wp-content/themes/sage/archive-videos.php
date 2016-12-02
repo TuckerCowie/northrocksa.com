@@ -23,7 +23,9 @@
 							</div>
 	    					<div class="nr_card_content text-primary">
 	    						<h4><?= the_title(); ?></h4>
-	    						<p class="text-muted">Uploaded <?= date('m/d/y', strtotime($video->publishedAt)); ?></p>
+	    						<p class="text-muted">
+                    <?= $video->recordingDetails->recordingDate ? 'Recorded ' . date('m/d/y', strtotime($video->recordingDetails->recordingDate)) : 'Uploaded ' . date('m/d/y', strtotime($video->snippet->publishedAt)); ?>
+                  </p>
     						</div>
 						</div>
 					</a>
